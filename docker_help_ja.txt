@@ -1,0 +1,6 @@
+Generate: output in out/
+./docker_run.sh python3 generate.py --outdir=out --trunc=1 --seeds=85,265,297,849     --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada-pytorch/pretrained/metfaces.pkl
+
+./docker_run.sh python3 train.py --outdir=out/training-runs --data=out/cifar10.zip --gpus=1
+
+If docker not recognize in wsl, open docker desktop settings and check default distro and leave open
