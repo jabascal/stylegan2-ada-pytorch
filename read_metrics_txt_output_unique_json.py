@@ -2,18 +2,17 @@ import json
 import os
 import re
 
-def read_metrics_from_eval_outputs(path_files, path_output, name_output, iter_files, pattern):
+def read_metrics_output_json(path_files, path_output, name_output, iter_files, pattern):
     # Get a list of all txt files in the directory
     #txt_files = glob.glob(os.path-.join(path_files, "*.txt"))
-    txt_files = [os.path.join(path_files, f"out_metrics_cifar10_{i}.txt") for i in iter_files]
-
-    metrics_names = ["fid50k_full", "kid50k_full", "pr50k3_full_precision", "pr50k3_full_recall"]  
-    metrics_names_short = ["fid", "kid", "precision", "recall"]
+    metrics_names = ["fid50k_full", "kid50k_full", "pr50k3_full_precision", 
+                     "pr50k3_full_recall", "is50k_mean"]  
+    metrics_names_short = ["fid", "kid", "precision", "recall", "is"]
     metrics = {metric_name: [] for metric_name in metrics_names}
-    metrics['files'] = txt_files
+    metrics['files'] = path_files
 
     # Iterate over each txt file
-    for file in txt_files:
+    for file in path_files:
         with open(file, "r") as f:
             # Read the contents of the file
             file_contents = f.read()
@@ -37,11 +36,13 @@ def read_metrics_from_eval_outputs(path_files, path_output, name_output, iter_fi
 if __name__ == "__main__":
     path_files = 'out'
     path_output = 'out'
-    name_output = 'metrics_cifar10.json'
-    iter_files = [200, 400, 800, 1400]
+    #name_output = 'metrics_cifar10.json'
+    name_output = 'metrics_metfaces.json'
+    iter_files = [200, 400, 800, 1600, 2200]
+    path_files = [os.path.join(path_files, f"out_metrics_metfaces_{i}.txt") for i in iter_files]
 
     # Pattern to match
     pattern = r'\{"results":.*?\n\n'
 
-    read_metrics_from_eval_outputs(path_files, path_output, name_output, iter_files, pattern)
+    read_metrics_output_json(path_files, path_output, name_output, iter_files, pattern)
     
