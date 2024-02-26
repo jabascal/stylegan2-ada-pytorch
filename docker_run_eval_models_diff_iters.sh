@@ -1,10 +1,13 @@
 #!/bin/bash
 
 function run_metrics() {
-    iters=(200 400 800 1600 2200)
-    #data_file="out/cifar10.zip"
-    data_file="out/metfaces_64.zip"
-    file_output_main="out_metrics_metfaces"
+    iters=(200 400 600 800)
+    #iters=(1600 3000)
+    name_data='kits19_256'
+    data_file="out/${name_data}_train.zip"
+    name_out_specs="tl_ffhq"
+    #data_file="out/metfaces_64.zip"
+    file_output_main="out/out_metrics_${name_data}_${name_out_specs}"
     for iter in "${iters[@]}"; do
         file_output="${file_output_main}_${iter}.txt"
         echo "File output: ${file_output}"

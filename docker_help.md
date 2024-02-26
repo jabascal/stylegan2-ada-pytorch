@@ -52,7 +52,7 @@ To read and display the results, use the following:
 ```
     ./copy_networks_specific_iters.sh
     ./docker_run_eval_models_diff_iters.sh
-    python read_metrics_output_json.py
+    python read_metrics_txt_output_unique_json.py
     python read_metrics_json_plot.py
 ```
 
