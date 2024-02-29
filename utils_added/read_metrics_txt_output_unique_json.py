@@ -5,8 +5,10 @@ import re
 def read_metrics_output_json(path_files, path_output, name_output, iter_files, pattern):
     # Get a list of all txt files in the directory
     #txt_files = glob.glob(os.path-.join(path_files, "*.txt"))
-    metrics_names = ["fid50k_full", "kid50k_full", "pr50k3_full_precision", 
-                     "pr50k3_full_recall", "is50k_mean", "is50k_std"]  
+    metrics_names = ["fid50k_full", "kid50k_full", "is50k_mean", "is50k_std", 
+                        #"pr50k3_full_precision", "pr50k3_full_recall",
+                     "pr50k3_precision", "pr50k3_recall",
+                     ]  
     metrics = {metric_name: [] for metric_name in metrics_names}
     metrics['files'] = path_files
 

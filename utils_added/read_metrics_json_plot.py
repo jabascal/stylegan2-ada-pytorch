@@ -39,13 +39,13 @@ def read_metrics_json_plots(json_file_path, outfile_path=None, xlabel=None, xval
 if __name__ == "__main__":
     #json_file_path = '/mnt/d/Results/stygan2-ada/cifar10/metrics/metrics_cifar10.json'
     #output_path = '/mnt/d/Results/stygan2-ada/cifar10/metrics'
-    name_data = 'metfaces_256_tffreeze4'
-    name_out_specs = 'tf_FFHQ'
+    name_data = 'dtd_32_rc10'
+    name_out_specs = '' #'_rc10'
     json_file_path = f'out/metrics_{name_data}.json'
     output_path = f'/mnt/d/Results/stygan2-ada/{name_data}/metrics/'
     if not os.path.exists(output_path):
         os.makedirs(output_path)
     outfile_path = os.path.join(output_path, f'metrics_{name_data}_{name_out_specs}')
     xlabel = 'Iterations'
-    xvals = [200, 400, 600]
+    xvals = [200, 400, 800, 1400, 2000]
     read_metrics_json_plots(json_file_path, outfile_path, xlabel, xvals) 

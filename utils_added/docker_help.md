@@ -48,13 +48,18 @@ freezed    = None, # Freeze-D: <int>, default = 0 discriminator layers
     pr50k3_full	20 min	10 min	Precision and recall[3] againt the full dataset.
     is50k	    25 min	5 min	Inception score[4] for CIFAR-10.
 
-To read and display the results, use the following:
+To read and display the results, use the following to copy the desired models 
+(for different iterations), run the evaluation script and then read and list 
+the metrics in a json file and plot them:
 ```
     ./copy_networks_specific_iters.sh
     ./docker_run_eval_models_diff_iters.sh
     python read_metrics_txt_output_unique_json.py
     python read_metrics_json_plot.py
 ```
+
+`python read_metrics_plot.py` can be used to replace the last two commands.
+
 
 ## PROJECTING IMAGES INTO LATENT SPACE
 ```
@@ -69,6 +74,12 @@ To read and display the results, use the following:
     python generate.py --outdir=out --dlatents=out/dlatents.npz \
         --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada/pretrained/ffhq.pkl
 ```
+
+## OTHERS
+To subsect a dataset, using a random selection 
+```
+    python random_subset.py
+```	
 
 ## NOTES
 -If docker not recognize in wsl, open docker desktop settings and check default distro and leave open
