@@ -28,21 +28,23 @@ if __name__ == "__main__":
     # Paths of metrics json files
     paths_json_files = [
             #'/mnt/d/Results/stygan2-ada/kits19/metrics_256_tl_ffhq/',
-            '/mnt/d/Results/stygan2-ada/metfaces/metrics_256_tf',
-            '/mnt/d/Results/stygan2-ada/metfaces/metrics_256_tffreeze4']
+            '/mnt/d/Results/stygan2-ada/dtd/00000-dtd_256_rc20-auto1-resumeffhq256/metrics_dtd_256_rc20/',
+            '/mnt/d/Results/stygan2-ada/dtd/00000-dtd_256_selec_rc50-auto1-resumeffhq256/metrics_dtd_256_selec_rc50_sub25k/']
 
     labels_files = [#'kits19_256_tl', 
-                    'met_256_tf', 
-                    'met_256_tffr4']
+                    'dtd_256_rc20_tl_ffhq', 
+                    'dtd_256_selec_rc50_tl_ffhq']
 
-    output_path = '/mnt/d/Results/stygan2-ada/metrics'
+    output_path = '/mnt/d/Results/stygan2-ada/dtd/combine_metrics/'
     if not os.path.exists(output_path):
         os.makedirs(output_path)
-    outname_specs = '_met_256'
+    outname_specs = '_dtd_256'
 
     xlabel = 'Iterations'
 
-    metrics_names = ["fid50k_full", "kid50k_full", "pr50k3_full_precision", 
-                    "pr50k3_full_recall", "is50k_mean", "is50k_std"]
+    metrics_names = ["fid50k_full", "kid50k_full", "is50k_mean", "is50k_std", 
+                        #"pr50k3_full_precision", "pr50k3_full_recall"
+                     "pr50k3_precision", "pr50k3_recall"
+                        ]
 
     read_metrics_json_combine_plots(paths_json_files, labels_files, metrics_names, output_path, xlabel, outname_specs)  

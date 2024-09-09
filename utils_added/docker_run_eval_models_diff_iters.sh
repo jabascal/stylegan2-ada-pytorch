@@ -3,7 +3,7 @@
 function run_metrics() {
     iters=(200 400 800 1400 2000)
     #iters=(1600 3000)
-    name_data='dtd_256_selec_rc50_sub25k'
+    name_data='dtd_256_selec_rc20_sub25k'
     data_file="out/${name_data}.zip"
     name_out_specs="" # '_tl'
     #data_file="out/metfaces_64.zip"
